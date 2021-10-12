@@ -99,5 +99,27 @@ where payments will be made (the URLs of the servers hosting your Odoo instances
    :align: center
    :alt: Allows payments originated from a specific domain.
 
+Capture payments after the delivery
+-----------------------------------
+
+Adyen allows you to capture an amount manually instead of having an immediate capture.
+
+To set it up, enable the **Capture Amount Manually** on Odoo, as explained in the :ref:`payment
+acquirers documentation <payment_acquirers/capture_amount>`, then on Adyen.
+
+To do so, open your Adyen Merchant Account, go to :menuselection:`Account --> Settings`, and set the
+**Capture Delay** to **manual**.
+
+.. image:: media/adyen_capture_delay.png
+   :align: center
+   :alt: Capture Delay settings in Adyen
+
+.. warning::
+   * If you set the **Capture Amount Manually** on Odoo but not on Adyen, Odoo can't detect it.
+     Therefore, your authorization request would be automatically approved in an immediate capture
+     on Adyen's side.
+   * After **7 days**, if the authorization hasn't yet been captured, the customer has the right to
+     **revoke** it.
+
 .. seealso::
    - :doc:`../payment_acquirers`
